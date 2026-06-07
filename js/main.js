@@ -318,7 +318,7 @@
   })();
 
   /* ------------------------------------------------------------------ *
-   * Background FX canvas — drifting neural particles
+   * Background FX canvas — soft pollen / seed motes drifting on a breeze
    * ------------------------------------------------------------------ */
   (function fx() {
     var canvas = $("#fx");
@@ -327,49 +327,55 @@
     if (!ctx) return;
 
     var dpr = Math.min(win.devicePixelRatio || 1, 2);
-    var w = 0, h = 0, pts = [];
+    var w = 0, h = 0, motes = [];
+    // gentle green / honey tones to match the garden-glass theme
+    var tints = ["124,193,151", "79,157,107", "216,162,74", "143,195,212"];
+
+    function spawn(seeded) {
+      return {
+        x: Math.random() * w,
+        y: seeded ? Math.random() * h : h + 20 * dpr,
+        r: (1 + Math.random() * 2.6) * dpr,
+        drift: (Math.random() - 0.5) * 0.3 * dpr,   // sideways sway base
+        rise: (0.18 + Math.random() * 0.4) * dpr,   // upward speed
+        phase: Math.random() * Math.PI * 2,
+        sway: (0.4 + Math.random() * 0.9),
+        alpha: 0.18 + Math.random() * 0.35,
+        tint: tints[(Math.random() * tints.length) | 0]
+      };
+    }
 
     function resize() {
       w = canvas.width = Math.floor(win.innerWidth * dpr);
       h = canvas.height = Math.floor(win.innerHeight * dpr);
       canvas.style.width = win.innerWidth + "px";
       canvas.style.height = win.innerHeight + "px";
-      var count = Math.min(70, Math.floor((win.innerWidth * win.innerHeight) / 26000));
-      pts = [];
-      for (var i = 0; i < count; i++) {
-        pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.25 * dpr,
-          vy: (Math.random() - 0.5) * 0.25 * dpr
-        });
-      }
+      var count = Math.min(48, Math.floor((win.innerWidth * win.innerHeight) / 34000));
+      motes = [];
+      for (var i = 0; i < count; i++) motes.push(spawn(true));
     }
     resize();
     win.addEventListener("resize", resize);
 
-    var LINK = 130 * dpr;
+    var t = 0;
     function frame() {
+      t += 0.01;
       ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < pts.length; i++) {
-        var p = pts[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.4 * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(124,92,255,.55)";
-        ctx.fill();
-        for (var j = i + 1; j < pts.length; j++) {
-          var q = pts[j];
-          var d = Math.hypot(p.x - q.x, p.y - q.y);
-          if (d < LINK) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = "rgba(25,211,255," + (0.16 * (1 - d / LINK)) + ")";
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
+      for (var i = 0; i < motes.length; i++) {
+        var m = motes[i];
+        m.y -= m.rise;
+        m.x += m.drift + Math.sin(t * m.sway + m.phase) * 0.4 * dpr;
+        if (m.y < -20 * dpr || m.x < -30 * dpr || m.x > w + 30 * dpr) {
+          motes[i] = spawn(false);
+          continue;
         }
+        var grd = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 2.4);
+        grd.addColorStop(0, "rgba(" + m.tint + "," + m.alpha + ")");
+        grd.addColorStop(1, "rgba(" + m.tint + ",0)");
+        ctx.beginPath();
+        ctx.fillStyle = grd;
+        ctx.arc(m.x, m.y, m.r * 2.4, 0, Math.PI * 2);
+        ctx.fill();
       }
       requestAnimationFrame(frame);
     }
