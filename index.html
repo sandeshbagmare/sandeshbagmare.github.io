@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05060f" />
+  <title>Sandesh Bagmare — AI Engineer & Agentic Systems</title>
+  <meta name="description" content="Sandesh Narendra Bagmare — Associate Software Analyst at PTC. Building agentic AI, multi-agent frameworks, RAG systems and the future of intelligent software." />
+  <meta name="author" content="Sandesh Narendra Bagmare" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sandesh Bagmare — AI Engineer & Agentic Systems" />
+  <meta property="og:description" content="Building agentic AI, multi-agent frameworks and RAG systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.png" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ====== Boot / preloader ====== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__ring"></div>
+      <div class="preloader__pct"><span id="loadPct">0</span><i>%</i></div>
+      <div class="preloader__label">INITIALISING&nbsp;NEURAL&nbsp;CORE</div>
+    </div>
+  </div>
+
+  <!-- ====== Background layers ====== -->
+  <canvas id="fx" class="fx-canvas" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__b aurora__b--1"></span>
+    <span class="aurora__b aurora__b--2"></span>
+    <span class="aurora__b aurora__b--3"></span>
+  </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ====== Custom cursor ====== -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- ====== Scroll progress ====== -->
+  <div class="scroll-progress"><span id="scrollBar"></span></div>
+
+  <!-- ====== Nav ====== -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand" data-cursor="hover">
+      <span class="nav__logo">SB</span>
+      <span class="nav__brandtext">Sandesh<i>.ai</i></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" data-cursor="hover">About</a>
+      <a href="#journey" data-cursor="hover">Journey</a>
+      <a href="#work" data-cursor="hover">Experience</a>
+      <a href="#projects" data-cursor="hover">Projects</a>
+      <a href="#skills" data-cursor="hover">Skills</a>
+      <a href="#contact" data-cursor="hover">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--ghost nav__cta" data-cursor="hover">Let's talk →</a>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__badge reveal" data-cursor="hover">
+          <span class="dot"></span> Open to AI / ML opportunities · Pune, India
+        </div>
+
+        <h1 class="hero__title">
+          <span class="line"><span data-split>Building</span> <span data-split class="grad">Agentic&nbsp;AI</span></span>
+          <span class="line"><span data-split>that thinks,</span> <span data-split class="grad">plans</span> <span data-split>&amp; acts.</span></span>
+        </h1>
+
+        <p class="hero__sub reveal">
+          I'm <strong>Sandesh Bagmare</strong> — Associate Software Analyst at
+          <strong>PTC</strong>, engineering multi-agent frameworks, RAG pipelines and
+          AI evaluation systems that turn language models into reliable, autonomous software.
+        </p>
+
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary" data-cursor="hover" data-magnetic>
+            <span>View my work</span>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-cursor="hover" data-magnetic>
+            <span>Get in touch</span>
+          </a>
+          <a href="assets/Sandesh-Bagmare-Resume.pdf" class="btn btn--text" data-cursor="hover" download>↧ Résumé</a>
+        </div>
+
+        <div class="hero__stats reveal">
+          <div class="stat"><b data-count="2" data-suffix="+">0</b><span>Years @ PTC</span></div>
+          <div class="stat"><b data-count="8.84" data-decimals="2">0</b><span>CGPA</span></div>
+          <div class="stat"><b data-count="60" data-suffix="+">0</b><span>Certifications</span></div>
+          <div class="stat"><b data-count="10" data-suffix="+">0</b><span>Projects shipped</span></div>
+        </div>
+      </div>
+
+      <!-- glossy 3D portrait pod -->
+      <div class="hero__pod" data-tilt>
+        <div class="pod__glow"></div>
+        <div class="pod__frame">
+          <img src="assets/profile.png" alt="Sandesh Bagmare" class="pod__img" />
+          <div class="pod__scan"></div>
+          <div class="pod__chips">
+            <span class="chip">LangGraph</span>
+            <span class="chip">RAG</span>
+            <span class="chip">Multi-Agent</span>
+          </div>
+        </div>
+        <div class="pod__ring pod__ring--a"></div>
+        <div class="pod__ring pod__ring--b"></div>
+      </div>
+
+      <a href="#about" class="hero__scroll" data-cursor="hover" aria-label="Scroll down">
+        <span class="hero__mouse"><i></i></span>
+        <span>scroll</span>
+      </a>
+    </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>LangGraph</span><span class="sep">✦</span><span>Multi-Agent Systems</span><span class="sep">✦</span>
+        <span>RAG</span><span class="sep">✦</span><span>Qdrant</span><span class="sep">✦</span>
+        <span>Azure AI</span><span class="sep">✦</span><span>DeepEval</span><span class="sep">✦</span>
+        <span>Python</span><span class="sep">✦</span><span>Agentic AI</span><span class="sep">✦</span>
+        <span>Deep Learning</span><span class="sep">✦</span><span>Terraform</span><span class="sep">✦</span>
+        <span>Cybersecurity</span><span class="sep">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span>LangGraph</span><span class="sep">✦</span><span>Multi-Agent Systems</span><span class="sep">✦</span>
+        <span>RAG</span><span class="sep">✦</span><span>Qdrant</span><span class="sep">✦</span>
+        <span>Azure AI</span><span class="sep">✦</span><span>DeepEval</span><span class="sep">✦</span>
+        <span>Python</span><span class="sep">✦</span><span>Agentic AI</span><span class="sep">✦</span>
+        <span>Deep Learning</span><span class="sep">✦</span><span>Terraform</span><span class="sep">✦</span>
+        <span>Cybersecurity</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about" id="about">
+      <div class="section-head">
+        <span class="eyebrow reveal">/ 01 — Who I am</span>
+        <h2 class="section-title reveal">Engineer at the intersection of <span class="grad">AI &amp; software craft</span></h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__card glass reveal" data-tilt>
+          <p>
+            I'm an <strong>Electronics &amp; Telecommunication</strong> graduate from
+            <strong>Vishwakarma Institute of Technology</strong> (8.84 CGPA) who fell hard for
+            artificial intelligence — and never looked back.
+          </p>
+          <p>
+            Today at <strong>PTC</strong> I build the <strong>ThingWorx AI Assistant</strong>:
+            agentic frameworks with <em>Plan-and-Act</em> reasoning, evaluation harnesses that
+            keep agents honest, and RAG pipelines that make enterprise software genuinely helpful.
+          </p>
+          <p>
+            From a vision-based robotic palm for amputees to a 60+ certification deep-dive across
+            deep learning, NLP, GANs and cybersecurity — I chase the hard problems where
+            <strong>intelligence meets reliability</strong>.
+          </p>
+          <div class="about__tags">
+            <span>Agentic AI</span><span>Multi-Agent</span><span>RAG</span>
+            <span>LLM Eval</span><span>Deep Learning</span><span>Cybersecurity</span>
+          </div>
+        </div>
+
+        <ul class="about__facts">
+          <li class="glass reveal"><b>Now</b><span>Associate Software Analyst, TWX AI R&amp;D @ PTC</span></li>
+          <li class="glass reveal"><b>Focus</b><span>LangGraph multi-agent frameworks &amp; agent evaluation</span></li>
+          <li class="glass reveal"><b>Published</b><span>IEEE — Vision-Based Humanoid Robotic Palm (2024)</span></li>
+          <li class="glass reveal"><b>Patent</b><span>Inventory Management System · Issued Dec 2024</span></li>
+          <li class="glass reveal"><b>Honors</b><span>PTC Product Spotlight Winner Q3'2025 · TCS HackQuest 9</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CINEMATIC JOURNEY (the scroll movie) ================= -->
+    <section class="journey" id="journey">
+      <div class="journey__pin" id="journeyPin">
+        <div class="journey__sky"></div>
+        <div class="journey__hud">
+          <span class="eyebrow">/ 02 — The pipeline</span>
+          <h2 class="journey__title" id="journeyTitle">From <span class="grad">prompt</span> to <span class="grad">production</span></h2>
+          <p class="journey__cap" id="journeyCap">Watch a request travel through the agentic stack I build.</p>
+        </div>
+
+        <!-- the track the "cargo pod" travels along -->
+        <div class="track">
+          <svg class="track__path" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+            <path id="trackLine" d="M -50 150 C 200 150 250 60 450 60 S 700 150 1050 90" fill="none"/>
+            <path id="trackLineGlow" d="M -50 150 C 200 150 250 60 450 60 S 700 150 1050 90" fill="none"/>
+          </svg>
+
+          <!-- stations -->
+          <div class="station" style="--x:8%;--y:74%"><i>1</i><b>Prompt</b><small>user intent</small></div>
+          <div class="station" style="--x:33%;--y:30%"><i>2</i><b>Plan</b><small>LangGraph</small></div>
+          <div class="station" style="--x:58%;--y:48%"><i>3</i><b>Act</b><small>tools · RAG</small></div>
+          <div class="station" style="--x:82%;--y:40%"><i>4</i><b>Evaluate</b><small>DeepEval</small></div>
+
+          <!-- the moving cargo pod (the "truck") -->
+          <div class="pod-cargo" id="cargo">
+            <div class="pod-cargo__body">
+              <span class="pod-cargo__core"></span>
+              <span class="pod-cargo__label">AI&nbsp;AGENT</span>
+            </div>
+            <div class="pod-cargo__trail"></div>
+            <div class="pod-cargo__shadow"></div>
+          </div>
+        </div>
+
+        <div class="journey__progress"><span id="journeyBar"></span></div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <span class="eyebrow reveal">/ 03 — Experience</span>
+        <h2 class="section-title reveal">Two years of <span class="grad">shipping AI at PTC</span></h2>
+      </div>
+      <div class="timeline">
+        <article class="tl-item glass reveal" data-tilt>
+          <div class="tl-item__time">Jul 2025 — Present</div>
+          <h3>Associate Software Analyst <span>· TWX AI R&amp;D</span></h3>
+          <span class="tl-item__org">PTC · Pune (Hybrid)</span>
+          <ul>
+            <li>Built the <strong>Twx AI Assistant agentic framework</strong> — a multi-agent PoC on <strong>LangGraph</strong> using a Plan-and-Act methodology.</li>
+            <li>Engineered an <strong>AI Agents Evaluation Framework</strong> integrating Azure AI Evaluation, DeepEval &amp; 4 custom evaluators with HTML/Allure reporting.</li>
+            <li>Created a CLI-based <strong>Agent Development Kit (ADK)</strong> for automated, customizable agent creation.</li>
+            <li>Enhanced <strong>Twx Copilot RAG</strong> with Qdrant pipelines, optimized chunking &amp; hybrid reranking; contributed agents &amp; A2A capabilities.</li>
+          </ul>
+        </article>
+
+        <article class="tl-item glass reveal" data-tilt>
+          <div class="tl-item__time">Jul 2024 — Jun 2025</div>
+          <h3>Software Engineering Intern</h3>
+          <span class="tl-item__org">PTC · Pune</span>
+          <ul>
+            <li>Designed the <strong>LangGraph flow architecture</strong> for Twx Copilot — data privacy &amp; optimized token usage.</li>
+            <li>Built &amp; presented a <strong>RAG-based PoC</strong> for intelligent product assistance.</li>
+            <li>Resolved security vulnerabilities flagged by <strong>Invicti, Prisma &amp; Black Duck</strong> for the SC 3.1.2 release.</li>
+            <li>Authored <strong>Terraform</strong> for Azure Flexible Server 16 &amp; PostgreSQL migration validation; Helm unit tests across repos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS (horizontal cinematic) ================= -->
+    <section class="projects" id="projects">
+      <div class="section-head">
+        <span class="eyebrow reveal">/ 04 — Selected work</span>
+        <h2 class="section-title reveal">Projects I'm <span class="grad">proud of</span></h2>
+        <p class="section-note reveal">Scroll → the gallery moves sideways.</p>
+      </div>
+
+      <div class="hwrap" id="hwrap">
+        <div class="htrack" id="htrack">
+          <article class="pcard" data-tilt>
+            <div class="pcard__no">01</div>
+            <div class="pcard__tag">Generative AI · Automation</div>
+            <h3>AI Social-Media Automation Platform</h3>
+            <p>Autonomous content creation, scheduling &amp; publishing across Instagram &amp; YouTube — LLM-generated SEO, analytics-driven pruning, scaled to 10+ accounts.</p>
+            <ul class="pcard__stack"><li>Python</li><li>LLMs</li><li>Analytics</li><li>APIs</li></ul>
+            <div class="pcard__shine"></div>
+          </article>
+
+          <article class="pcard" data-tilt>
+            <div class="pcard__no">02</div>
+            <div class="pcard__tag">Deep Learning · Robotics</div>
+            <h3>Vision-Based Humanoid Robotic Palm</h3>
+            <p>Assistive palm for amputees with real-time object recognition &amp; adaptive grip. ResNet 98.92% · VGG16 96.55% · YOLOv5 84.90%. Published at IEEE.</p>
+            <ul class="pcard__stack"><li>ResNet</li><li>YOLOv5</li><li>VGG16</li><li>Arduino</li></ul>
+            <div class="pcard__shine"></div>
+          </article>
+
+          <article class="pcard" data-tilt>
+            <div class="pcard__no">03</div>
+            <div class="pcard__tag">IoT · Health</div>
+            <h3>Pressure-Sensor Smart Bed</h3>
+            <p>20×10 FSR matrix mapping body-pressure in real time for bed-sore prevention, sleep tracking &amp; fall detection — backed by a MySQL analytics store.</p>
+            <ul class="pcard__stack"><li>Python</li><li>FSR</li><li>MySQL</li><li>Viz</li></ul>
+            <div class="pcard__shine"></div>
+          </article>
+
+          <article class="pcard" data-tilt>
+            <div class="pcard__no">04</div>
+            <div class="pcard__tag">Agentic AI · Framework</div>
+            <h3>Agent Evaluation Framework</h3>
+            <p>A reliability harness for LLM agents — Azure AI Evaluation + DeepEval + 4 custom evaluators with rich HTML / Allure reporting. Built @ PTC.</p>
+            <ul class="pcard__stack"><li>DeepEval</li><li>Azure AI</li><li>Allure</li><li>Python</li></ul>
+            <div class="pcard__shine"></div>
+          </article>
+
+          <article class="pcard pcard--cta">
+            <h3>More on GitHub &amp; LinkedIn</h3>
+            <p>Patents, publications &amp; experiments.</p>
+            <a href="https://www.linkedin.com/in/sandeshbagmare" target="_blank" rel="noopener" class="btn btn--primary" data-cursor="hover">LinkedIn →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="skills" id="skills">
+      <div class="section-head">
+        <span class="eyebrow reveal">/ 05 — Toolbox</span>
+        <h2 class="section-title reveal">The stack I <span class="grad">build with</span></h2>
+      </div>
+      <div class="skills__grid">
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>🤖 AI / ML</h4>
+          <div class="chips">
+            <span>LangChain</span><span>LangGraph</span><span>RAG</span><span>Qdrant</span>
+            <span>Azure AI Evaluation</span><span>DeepEval</span><span>Agentic AI</span>
+            <span>Multi-Agent</span><span>Deep Learning</span><span>NLP</span><span>Computer Vision</span><span>GANs</span>
+          </div>
+        </div>
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>💻 Languages</h4>
+          <div class="chips">
+            <span>Python</span><span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bash</span>
+          </div>
+        </div>
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>☁️ Cloud &amp; DevOps</h4>
+          <div class="chips">
+            <span>Azure</span><span>Terraform</span><span>Helm</span><span>Kubernetes</span><span>Jenkins</span><span>Git</span>
+          </div>
+        </div>
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>🛡️ Security</h4>
+          <div class="chips">
+            <span>BurpSuite</span><span>Invicti</span><span>Prisma</span><span>Black Duck</span><span>Red/Blue Team</span>
+          </div>
+        </div>
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>🗄️ Data</h4>
+          <div class="chips">
+            <span>PostgreSQL</span><span>MySQL</span><span>Azure Flexible Server</span><span>Vector DBs</span>
+          </div>
+        </div>
+        <div class="skill-card glass reveal" data-tilt>
+          <h4>🧠 Core CS</h4>
+          <div class="chips">
+            <span>DSA</span><span>OOP</span><span>DBMS</span><span>OS</span><span>System Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CREDS (counters + certs marquee) ================= -->
+    <section class="creds" id="creds">
+      <div class="creds__stats">
+        <div class="cstat glass reveal"><b data-count="60" data-suffix="+">0</b><span>Certifications</span></div>
+        <div class="cstat glass reveal"><b data-count="2" data-suffix="">0</b><span>IEEE Publications</span></div>
+        <div class="cstat glass reveal"><b data-count="1" data-suffix="">0</b><span>Patent</span></div>
+        <div class="cstat glass reveal"><b data-count="5" data-suffix="+">0</b><span>Awards @ PTC</span></div>
+      </div>
+
+      <div class="section-head" style="margin-top:4rem">
+        <span class="eyebrow reveal">/ 06 — Always learning</span>
+        <h2 class="section-title reveal">Certifications &amp; <span class="grad">recognition</span></h2>
+      </div>
+      <div class="cert-marquee" aria-hidden="true">
+        <div class="cert-marquee__track">
+          <span>Agentic AI in Action · O'Reilly</span><span>AI Agents with LangGraph · O'Reilly</span>
+          <span>Securing Generative AI · O'Reilly</span><span>AI &amp; Cybersecurity 2025 · O'Reilly</span>
+          <span>Google Cybersecurity · Coursera</span><span>NVIDIA Fundamentals of Deep Learning</span>
+          <span>LinkedIn AI Academy</span><span>Certified Kubernetes App Developer</span>
+          <span>IaC with Terraform · Google</span><span>Web Hacking Expert · Packt</span>
+          <span>Build GANs &amp; Diffusion · TF/PyTorch</span><span>Advanced NLP with Python</span>
+          <!-- dup -->
+          <span>Agentic AI in Action · O'Reilly</span><span>AI Agents with LangGraph · O'Reilly</span>
+          <span>Securing Generative AI · O'Reilly</span><span>AI &amp; Cybersecurity 2025 · O'Reilly</span>
+          <span>Google Cybersecurity · Coursera</span><span>NVIDIA Fundamentals of Deep Learning</span>
+          <span>LinkedIn AI Academy</span><span>Certified Kubernetes App Developer</span>
+          <span>IaC with Terraform · Google</span><span>Web Hacking Expert · Packt</span>
+          <span>Build GANs &amp; Diffusion · TF/PyTorch</span><span>Advanced NLP with Python</span>
+        </div>
+      </div>
+
+      <div class="awards">
+        <div class="award glass reveal">🏆 <b>PTC Product Spotlight Winner</b> — Q3 2025, ThingWorx AI</div>
+        <div class="award glass reveal">🔐 <b>TCS HackQuest 9</b> — Top performer, secured Digital Package</div>
+        <div class="award glass reveal">🥇 <b>Smart India Hackathon 2023</b> — Internal winner, VIT Pune</div>
+        <div class="award glass reveal">👏 <b>Team PTC Applause</b> — Helm, Terraform &amp; AI contributions</div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact" id="contact">
+      <div class="contact__inner glass reveal" data-tilt>
+        <span class="eyebrow">/ 07 — Let's build</span>
+        <h2 class="contact__title">Have an <span class="grad">AI problem</span> worth solving?</h2>
+        <p>Agents, RAG, evaluation, or something nobody's tried yet — I'd love to hear about it.</p>
+        <div class="contact__actions">
+          <a href="mailto:sandeshbagmare2110@gmail.com" class="btn btn--primary" data-cursor="hover" data-magnetic>✉ sandeshbagmare2110@gmail.com</a>
+          <a href="tel:+918975963453" class="btn btn--ghost" data-cursor="hover" data-magnetic>📞 +91 89759 63453</a>
+        </div>
+        <div class="contact__socials">
+          <a href="https://www.linkedin.com/in/sandeshbagmare" target="_blank" rel="noopener" data-cursor="hover">LinkedIn ↗</a>
+          <a href="https://github.com/sandeshbagmare" target="_blank" rel="noopener" data-cursor="hover">GitHub ↗</a>
+          <a href="mailto:sandeshbagmare2110@gmail.com" data-cursor="hover">Email ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">SANDESH&nbsp;BAGMARE</div>
+    <div class="footer__row">
+      <span>© <span id="year"></span> Sandesh Narendra Bagmare</span>
+      <span>Designed &amp; built with AI, caffeine &amp; GSAP ✦ Pune, India</span>
+      <a href="#hero" data-cursor="hover">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ====== Libraries (CDN) ====== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
